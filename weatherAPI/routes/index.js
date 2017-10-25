@@ -27,18 +27,17 @@ router.post('/', function(req, res) {
                               weather: null,
                               error: 'Error, please try again' });
         } else {
-            let weatherInfo = weather.weather.map(function(weather){
-              return (
-                  `Weather: ${weather.main} Description: ${weather.description}`
-
-
-              );
-            }
-
-            )
-            let weatherTemp = `It's ${weather.main.temp} degress in ${weather.name}...`;
+            let weatherLocation = `${weather.name}, ${weather.sys.country}`
+                weatherInfo = weather.weather.map(function(weather){
+                  return (
+                      `Weather: ${weather.main}  Details: ${weather.description}`
+                  );
+                });
+            let weatherTemp = `${weather.main.temp} degress Fahrenheit`;
             res.render('index', { title: 'OpenWeather API',
+                                  location: weatherLocation,
                                   weather: weatherInfo,
+                                  temperature: weatherTemp,
                                   error: null});
           }
       }

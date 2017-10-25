@@ -14,7 +14,14 @@
     </form>
 
     <% if(weather !== null){ %>
-      <p><%= weather %></p>
+      <h2><%= location %></h2>
+      <h3>Temperature</h3>
+        <p>
+          <%= temperature %>
+          <br/><br/>
+          <%= weather %>
+        <p>
+
     <% } %>
     <% if(error !== null){ %>
       <p><%= error %></p>
