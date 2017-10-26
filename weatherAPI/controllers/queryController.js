@@ -20,6 +20,7 @@ exports.postQuery = function(req, res) {
   });
   newQuery.save();
   console.log(newQuery);
+  console.log(Query);
 
   // Utilizing data from OpenWeatherAPI
   request(url, function (err, response, body) {
