@@ -16,6 +16,15 @@ var querySchema = new Schema({
   date_queried: {
     type: Date,
     default: Date.now
+  },
+  city_result: {
+    type: String
+  },
+  country_result: {
+    type: String
+  },
+  temp_result: {
+    type: Number
   }
 });
 

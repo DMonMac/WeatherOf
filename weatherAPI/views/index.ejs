@@ -13,10 +13,10 @@
     </form>
 
     <% if(weather !== null){ %>
-      <h2><%= location %></h2>
+      <h2><%= city %>, <%= country %></h2>
       <h3>Temperature</h3>
         <p>
-          <%= temperature %>
+          <%= temperature %> degrees
           <br/><br/>
           <%= weather %>
         <p>
@@ -25,6 +25,8 @@
     <% if(error !== null){ %>
       <p><%= error %></p>
     <% } %>
+
+    <br/><br/><a href="/api/queries">View Queries API</a>
 
   </body>
 </html>
