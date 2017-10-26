@@ -41,20 +41,22 @@ exports.postQuery = function(req, res) {
             let wCity = weatherData.name,
                 wCountry = weatherData.sys.country,
                 wTemp = weatherData.main.temp,
-                weatherInfo = weatherData.weather.map(function(weather){
-                  let wWeather = weather.main
-                  return (
-                      `Weather: ${wWeather}  Details: ${weather.description}`
-                  );
+                wWeather = weatherData.weather.map(function(weather){
+                  return weather.main
+                });
+                wWeatherDescription = weatherData.weather.map(function(weather){
+                  return weather.description
                 });
             // save query and results
             let newQuery = new Query({
               query: query,
               city_result: wCity,
               country_result: wCountry,
-              temp_result: wTemp
+              temp_result: wTemp,
+              weather_result: wWeather[0],
+              weather_description_result: wWeatherDescription[0],
             });
-            newQuery.save();
+            //newQuery.save();
             console.log(newQuery);
 
             res.render('index', { title: 'OpenWeather API',
@@ -63,7 +65,8 @@ exports.postQuery = function(req, res) {
                                   city: wCity,
                                   country: wCountry,
                                   temperature: wTemp,
-                                  weather: weatherInfo
+                                  weather: wWeather[0],
+                                  weather_description: wWeatherDescription[0]
                                 });
           }
 

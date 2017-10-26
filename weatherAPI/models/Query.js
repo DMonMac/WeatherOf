@@ -25,6 +25,12 @@ var querySchema = new Schema({
   },
   temp_result: {
     type: Number
+  },
+  weather_result: {
+    type: String
+  },
+  weather_description_result: {
+    type: String
   }
 });
 

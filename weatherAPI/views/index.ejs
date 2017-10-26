@@ -13,14 +13,15 @@
     </form>
 
     <% if(weather !== null){ %>
-      <h2><%= city %>, <%= country %></h2>
-      <h3>Temperature</h3>
-        <p>
-          <%= temperature %> degrees
-          <br/><br/>
-          <%= weather %>
-        <p>
-
+      <div>
+        <h2><%= city %>, <%= country %></h2>
+        <h3>Temperature</h3>
+          <p><%= temperature %> degrees<p>
+        <h3>Weather</h3>
+        <p><%= weather %></p>
+        <h4>Description</h4>
+        <p><%= weather_description %></p>
+      </div>
     <% } %>
     <% if(error !== null){ %>
       <p><%= error %></p>
