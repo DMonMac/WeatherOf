@@ -16,39 +16,58 @@ exports.postQuery = function(req, res) {
 
 
   // Save query to db
-  let newQuery = new Query({
-    query: query
-  });
-  newQuery.save();
+  //let newQuery = new Query({
+  //  query: query
+  //});
+  //newQuery.save();
 
   // Utilizing data from OpenWeatherAPI
   request(url, function (err, response, body) {
     // Error handling first, then response if none
     if(err){
       res.render('index', { title: 'OpenWeather API',
-                            weather: null,
+                            apiData: null,
                             error: 'Error, please try again' });
     } else {
         // Data from API is 'parsed' into usable data
-        let weather = JSON.parse(body)
-        console.log(weather);
-        if(weather.main == undefined) {
+        let weatherData = JSON.parse(body)
+        console.log(query);
+        console.log(weatherData);
+        if(weatherData == undefined) {
           res.render('index', { title: 'OpenWeather API',
-                              weather: null,
+                              apiData: null,
                               error: 'Error, please try again' });
         } else {
-            let weatherLocation = `${weather.name}, ${weather.sys.country}`
-                weatherInfo = weather.weather.map(function(weather){
-                  return (
-                      `Weather: ${weather.main}  Details: ${weather.description}`
-                  );
+            let wCity = weatherData.name,
+                wCountry = weatherData.sys.country,
+                wTemp = weatherData.main.temp,
+                wWeather = weatherData.weather.map(function(weather){
+                  return weather.main
                 });
-            let weatherTemp = `${weather.main.temp} degress Fahrenheit`;
+                wWeatherDescription = weatherData.weather.map(function(weather){
+                  return weather.description
+                });
+            // save query and results
+            let newQuery = new Query({
+              query: query,
+              city_result: wCity,
+              country_result: wCountry,
+              temp_result: wTemp,
+              weather_result: wWeather[0],
+              weather_description_result: wWeatherDescription[0],
+            });
+            newQuery.save();
+            console.log(newQuery);
+
             res.render('index', { title: 'OpenWeather API',
-                                  location: weatherLocation,
-                                  weather: weatherInfo,
-                                  temperature: weatherTemp,
-                                  error: null});
+                                  apiData: true,
+                                  error: null,
+                                  city: wCity,
+                                  country: wCountry,
+                                  temperature: wTemp,
+                                  weather: wWeather[0],
+                                  weather_description: wWeatherDescription[0]
+                                });
           }
 
 
