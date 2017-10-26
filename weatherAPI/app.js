@@ -8,13 +8,12 @@ var bodyParser = require('body-parser');
 
 // Mongo DB
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test_queries'); // Query DB
+mongoose.connect('mongodb://DMonMac:#L1810t221#@mernblogcluster-shard-00-00-ifsgy.mongodb.net:27017,mernblogcluster-shard-00-01-ifsgy.mongodb.net:27017,mernblogcluster-shard-00-02-ifsgy.mongodb.net:27017/test?ssl=true&replicaSet=MERNBlogCluster-shard-0&authSource=admin'); // Query DB
 
 
 // Simplify route location
 var index = require('./routes/index');
 var users = require('./routes/users');
-var query_db = require('./routes/query_db');
 
 var app = express();
 
@@ -34,7 +33,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Set up routes
 app.use('/', index);
 app.use('/users', users);
-app.use('/query_db', query_db);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
