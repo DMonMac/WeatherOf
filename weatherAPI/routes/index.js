@@ -28,6 +28,7 @@ router.get('/api/queries', function(req, res) {
 
 //Queries
 router.get('/queries', function(req, res) {
+  // Sends json format data to queries.ejs
   Query.find()
     .then(queries => {
       res.render('queries', { title: 'Queries',
