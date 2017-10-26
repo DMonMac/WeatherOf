@@ -6,17 +6,17 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <table style="width:100%">
+    <table style="width:100%; text-align:left">
       <tr>
-        <th>Date Queried</th>
-        <th>City</th>
-        <th>Temp</th>
+        <th><h2>Date Queried</h2></th>
+        <th><h2>City</h2></th>
+        <th><h2>Temp</h2></th>
       <tr>
       <% queries.map(query => { %>
         <tr>
-          <th><%= query.date_queried %></th>
-          <th><%= query.city_result %>, <%= query.country_result %></th>
-          <th><%= query.temp_result %></th>
+          <td><%= query.date_queried %></td>
+          <td><%= query.city_result %>, <%= query.country_result %></td>
+          <td><%= query.temp_result %></td>
         <tr>
       <% }) %>
     </table>
