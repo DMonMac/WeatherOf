@@ -6,5 +6,19 @@
   </head>
   <body>
     <h1><%= title %></h1>
+    <table style="width:100%">
+      <tr>
+        <th>Date Queried</th>
+        <th>City</th>
+        <th>Temp</th>
+      <tr>
+      <% queries.map(query => { %>
+        <tr>
+          <th><%= query.date_queried %></th>
+          <th><%= query.city_result %>, <%= query.country_result %></th>
+          <th><%= query.temp_result %></th>
+        <tr>
+      <% }) %>
+    </table>
   </body>
 </html>

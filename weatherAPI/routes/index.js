@@ -28,12 +28,14 @@ router.get('/api/queries', function(req, res) {
 
 //Queries
 router.get('/queries', function(req, res) {
-  res.render('queries', { title: 'Queries' });
-//  Query.find()
-//    .then(queries => {
-//      res.json(queries)
-//    })
+  Query.find()
+    .then(queries => {
+      res.render('queries', { title: 'Queries',
+                              queries: queries
+                            })
+      })
 });
+
 
 // Return router
 module.exports = router;
