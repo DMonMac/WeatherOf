@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <form action="/" method="post">
+      <input name="query" type="text" placeholder="Enter City" required/>
+      <input type="submit" value="Get Weather">
+    </form>
+
+    <% if(weather !== null){ %>
+      <h2><%= location %></h2>
+      <h3>Temperature</h3>
+        <p>
+          <%= temperature %>
+          <br/><br/>
+          <%= weather %>
+        <p>
+
+    <% } %>
+    <% if(error !== null){ %>
+      <p><%= error %></p>
+    <% } %>
+
+  </body>
+</html>
