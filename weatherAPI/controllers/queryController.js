@@ -56,7 +56,7 @@ exports.postQuery = function(req, res) {
               weather_result: wWeather[0],
               weather_description_result: wWeatherDescription[0],
             });
-            //newQuery.save();
+            newQuery.save();
             console.log(newQuery);
 
             res.render('index', { title: 'OpenWeather API',

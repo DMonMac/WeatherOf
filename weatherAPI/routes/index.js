@@ -26,5 +26,13 @@ router.get('/api/queries', function(req, res) {
     })
 });
 
+//Queries
+//router.get('/queries', function(req, res) {
+//  Query.find()
+//    .then(queries => {
+//      res.json(queries)
+//    })
+//});
+
 // Return router
 module.exports = router;
