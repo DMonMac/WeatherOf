@@ -32,7 +32,7 @@ router.get('/queries', function(req, res) {
   Query.find()
     .then(queries => {
       res.render('queries', { title: 'Queries',
-                              queries: queries
+                              queries: queries,
                             })
       })
 });
