@@ -12,7 +12,7 @@ const Query = require('../models/Query');
 exports.postQuery = function(req, res) {
   let query = req.body.query;
   const apiKey = 'f1f7d91ee7de450aa3c6a354aed9abe5'; // API key for OpenWeather
-  let url = `http://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}`
+  let url = `http://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}&units=metric`
 
 
   // Save query to db
@@ -40,7 +40,8 @@ exports.postQuery = function(req, res) {
         } else {
             let wCity = weatherData.name,
                 wCountry = weatherData.sys.country,
-                wTemp = (weatherData.main.temp - 273.15).toFixed(2),
+                wTemp = weatherData.main.temp.toFixed(2),
+                //wTemp = (weatherData.main.temp - 273.15).toFixed(2),
                 wWeather = weatherData.weather.map(function(weather){
                   return weather.main
                 });
