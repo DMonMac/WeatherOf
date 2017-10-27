@@ -40,7 +40,7 @@ exports.postQuery = function(req, res) {
         } else {
             let wCity = weatherData.name,
                 wCountry = weatherData.sys.country,
-                wTemp = weatherData.main.temp,
+                wTemp = (weatherData.main.temp - 273.15).toFixed(2),
                 wWeather = weatherData.weather.map(function(weather){
                   return weather.main
                 });
