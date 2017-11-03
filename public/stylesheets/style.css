@@ -1,12 +1,57 @@
-body {
-  /*
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  */
+@import url('https://fonts.googleapis.com/css?family=Catamaran|Open+Sans');
+
+html {
+  height: 100%;
 }
 
-a {
-  /*
-  color: #00B7FF;
-  */
+body {
+  height: 100%;
+  color: rgba(255, 255, 255, 1);
+  background: #007aa9; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#007aa9, white); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#007aa9, white); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#007aa9, white); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#007aa9, white);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#home-content h1 {
+  font-family: 'Catamaran', sans-serif;
+  font-size: 4.1em;
+  margin: 20px 0px 20px 0px;
+}
+
+#home-content h2 {
+  margin: 0px;
+  font-size: 3em;
+  padding: 10px 0px;
+}
+
+#home-content p {
+  font-size: 1.75em;
+  margin: 0px;
+  padding: 5px 0px;
+}
+
+.form-control {
+  background-color: rgba(255, 255, 255, 1);
+  color: #ffffff;
+}
+
+
+#home-content {
+  padding-top: 75px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#weather-info {
+  padding: 30px 0 45px 0;
+  margin: 0px;
+}
+
+#temperature {
+  font-size: 2.75em;
 }
