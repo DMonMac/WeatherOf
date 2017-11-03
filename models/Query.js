@@ -29,7 +29,7 @@ var querySchema = new Schema({
   weather_result: {
     type: String
   },
-  weather_description_result: {
+  weather_icon_result: {
     type: String
   }
 });
