@@ -13,7 +13,7 @@ const queryController = require('../controllers/queryController.js')
 // Routes
 // Homepage
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'OpenWeather API', weather: null, error: null });
+  res.render('index', { title: 'WeatherOf', weather: null, error: null });
 });
 
 router.post('/', queryController.postQuery);
