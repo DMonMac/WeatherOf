@@ -2,6 +2,11 @@
 <html>
   <head>
     <title><%= title %></title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
@@ -13,7 +18,7 @@
     </form>
 
     <% if(weather !== null){ %>
-      <div>
+      <div class="container-fluid">
         <h2><%= city %>, <%= country %></h2>
         <h3>Temperature</h3>
           <p><%= temperature %>°C<p>
