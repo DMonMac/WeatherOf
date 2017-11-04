@@ -23,9 +23,16 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-#home-content input::placeholder {
+#home-content input {
   color: #ffffff;
   text-shadow: 1px 1px rgba(0, 0, 0, .25);
+  text-align: center;
+}
+
+#home-content input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow: 1px 1px rgba(0, 0, 0, .25);
+  text-align: center;
 }
 
 #home-content h1 {
@@ -46,6 +53,10 @@ body {
   margin: 0px;
   padding: 5px 0px;
   text-transform: capitalize;
+}
+
+#home-content form {
+  padding: 0px 0px 20px 0px;
 }
 
 #home-content .form-control {
@@ -72,10 +83,6 @@ body {
     border-color: rgba(255, 255, 255, 0.5);
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
     text-shadow: 1px 1px rgba(0, 0, 0, .25);
-}
-
-#home-content form {
-  padding: 0px 0px 20px 0px;
 }
 
 #weather-info {
