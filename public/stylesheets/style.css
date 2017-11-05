@@ -46,7 +46,7 @@ tr:hover {
 }
 
 #home-content {
-  margin: 0px auto;
+  margin: 30px auto;
   width: 25%;
   text-align: center;
 }
@@ -64,9 +64,10 @@ tr:hover {
 }
 
 #home-content h1 {
+  margin: 0;
   font-family: 'Catamaran', sans-serif;
   font-size: 4.1em;
-  margin: 20px 0px 20px 0px;
+  padding: 0px 0px 20px 0px;
   text-shadow: 2px 3px rgba(0, 0, 0, .25);
 }
 
@@ -125,7 +126,7 @@ tr:hover {
 
 @media only screen and (max-width : 992px) {
   #home-content {
-    margin: 0px auto;
+    margin: 30px auto;
     width: 50%;
     text-align: center;
   }
@@ -133,7 +134,7 @@ tr:hover {
 
 @media only screen and (max-width : 480px) {
   #home-content {
-    margin: 0px auto;
+    margin: 30px auto;
     width: 75%;
     text-align: center;
   }
