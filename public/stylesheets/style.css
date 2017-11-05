@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Catamaran|Open+Sans');
 
-html {
-  height: 100%;
-}
-
 body {
   height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   color: rgba(255, 255, 255, 1);
   background: #007aa9; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(#007aa9, #eee); /* For Safari 5.1 to 6.0 */
@@ -16,6 +15,7 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  font-family: 'Open Sans', sans-serif;
 }
 
 tr:hover {
@@ -27,9 +27,28 @@ tr:hover {
 
 }
 
+.frameT {
+  width: 100%;
+  padding: 0px;
+  display: table;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+
+.frameTC {
+  padding: 0px;
+  vertical-align: middle;
+  display: table-cell;
+  margin: 0;
+}
+
 #home-content {
-  padding-top: 75px;
-  font-family: 'Open Sans', sans-serif;
+  margin: 0px auto;
+  width: 25%;
+  text-align: center;
 }
 
 #home-content input {
@@ -65,7 +84,7 @@ tr:hover {
 }
 
 #home-content form {
-  padding: 0px 0px 20px 0px;
+  padding: 0px 0px 15px 0px;
 }
 
 #home-content .form-control {
@@ -95,11 +114,33 @@ tr:hover {
 }
 
 #weather-info {
-  padding: 20px 0 45px 0;
+  padding: 25px 0 40px 0;
   margin: 0px;
   text-shadow: 2px 3px rgba(0, 0, 0, .25);
 }
 
 #temperature {
   font-size: 2.75em;
+}
+
+@media only screen and (max-width : 992px) {
+  #home-content {
+    margin: 0px auto;
+    width: 50%;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width : 480px) {
+  #home-content {
+    margin: 0px auto;
+    width: 75%;
+    text-align: center;
+  }
+  #home-content h1 {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 3.5em;
+    margin: 20px 0px 20px 0px;
+    text-shadow: 2px 3px rgba(0, 0, 0, .25);
+  }
 }
