@@ -77,11 +77,10 @@ tr:hover {
   padding: 10px 0px;
 }
 
-#home-content p {
-  font-size: 1.75em;
+#home-content h3 {
   margin: 0px;
+  font-size: 2.75em;
   padding: 5px 0px;
-  text-transform: capitalize;
 }
 
 #home-content form {
@@ -120,8 +119,13 @@ tr:hover {
   text-shadow: 2px 3px rgba(0, 0, 0, .25);
 }
 
-#temperature {
-  font-size: 2.75em;
+#weather {
+  font-size: 2.5em;
+  text-transform: capitalize;
+}
+
+#weather img {
+  padding: 0 5px;
 }
 
 @media only screen and (max-width : 992px) {
