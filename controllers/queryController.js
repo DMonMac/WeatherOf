@@ -5,7 +5,7 @@ var request = require('request');
 
 // Mongo DB
 const mongoose = require('mongoose');
-const Query = require('../models/Query');
+var Query = mongoose.model('Queries');
 
 
 // Homepage POST: Save query to database then display weather details to user
@@ -51,7 +51,7 @@ exports.postQuery = function(req, res) {
               weather_result: wWeather[0],
               weather_icon_result: wIcon[0]
             });
-            //newQuery.save();
+            newQuery.save();
             console.log(newQuery);
 
             res.render('index', { title: 'WeatherOf',
@@ -64,11 +64,15 @@ exports.postQuery = function(req, res) {
                                   weather_icon: wIcon[0]
                                 });
           }
-
-
-
       }
-  })
-
-
+  });
 }
+
+exports.deleteQueryAPI = function(req, res) {
+  Query.remove({
+    _id: req.params.queryId
+  }, (err, query) => {
+    if (err) {res.json(err)};
+    res.json({query, message: `Query deleted`});
+  });
+};

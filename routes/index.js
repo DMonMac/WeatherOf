@@ -25,6 +25,7 @@ router.get('/api/queries', function(req, res) {
       res.json(queries)
     })
 });
+//router.delete('/api/queries/:queryId', queryController.deleteQueryAPI);
 
 //Queries
 router.get('/queries', function(req, res) {
@@ -36,6 +37,9 @@ router.get('/queries', function(req, res) {
                             })
       })
 });
+
+
+
 
 
 // Return router
