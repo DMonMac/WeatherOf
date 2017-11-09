@@ -17,20 +17,22 @@
         <thead>
           <tr>
             <th>Date Queried</th>
-            <th>City</th>
+            <th>City, Country</th>
             <th>Temperature</th>
           <tr>
         </thead>
         <tbody>
-          <% queries.map(query => { %>
-            <tr>
-              <td><%= query.date_queried %></td>
-              <td><%= query.city_result %>, <%= query.country_result %></td>
-              <td><%= parseInt(query.temp_result).toFixed(2) %>°C</td> <!--Since .toFixed() turns value to a string, use parseInt() to make it into an integer before using .toFixed() again. -->
-            <tr>
-          <% }) %>
-        </tbody>
+            <% queries.map(query => { %>
+              <tr>
+                <td><%= query.date_queried %></td>
+                <% if(query.results != null){ %> <!-- !== null is stricter and won't consider 'undefined' -->
+                  <td><%= query.results.name %>, <%= query.results.sys.country %></td>
+                  <td><%= query.results.main.temp.toFixed(2) %>°C</td>
+                <% } %>
 
+              <tr>
+            <% }) %>
+        </tbody>
       </table>
     </div>
 

@@ -17,21 +17,7 @@ var querySchema = new Schema({
     type: Date,
     default: Date.now
   },
-  city_result: {
-    type: String
-  },
-  country_result: {
-    type: String
-  },
-  temp_result: {
-    type: Number
-  },
-  weather_result: {
-    type: String
-  },
-  weather_icon_result: {
-    type: String
-  }
+  results: {}
 });
 
 

@@ -22,12 +22,16 @@
               		<button type="submit" class="btn btn-default">Get Weather</button>
           		</form>
               <% if(weather !== null){ %>
+
                 <div id="weather-info">
-                  <h2><%= city %>, <%= country %></h2>
-                  <h3><%= temperature %>°C</h3>
-                  <div id="weather">
-                    <img src='<%= weather_icon %>'><span><%= weather %></span>
-                  </div>
+                    <h2><%= weather.name %>, <%= weather.sys.country %></h2>
+                    <h3><%= weather.main.temp.toFixed(2) %>°C</h3>
+                    <div id="weather">
+                      <% weather.weather.map(weather => { %>
+                        <img src='http://openweathermap.org/img/w/<%= weather.icon %>.png'><span><%= weather.description %></span>
+                      <% }) %>
+                    </div>
+
 
                 </div>
               <% } %>

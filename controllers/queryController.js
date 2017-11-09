@@ -8,7 +8,18 @@ const mongoose = require('mongoose');
 var Query = mongoose.model('Queries');
 
 
-// Homepage POST: Save query to database then display weather details to user
+// GET:
+exports.getQueries = function(req, res) {
+  // Sends json format data to queries.ejs
+  Query.find()
+    .then(queries => {
+      res.render('queries', { title: 'Queries',
+                              queries: queries
+                            })
+      })
+}
+
+//POST: Save query to database then display weather details to user
 exports.postQuery = function(req, res) {
   let query = req.body.query;
   const apiKey = 'f1f7d91ee7de450aa3c6a354aed9abe5'; // API key for OpenWeather
@@ -31,25 +42,9 @@ exports.postQuery = function(req, res) {
                               apiData: null,
                               error: 'Error, please try again' });
         } else {
-            let wCity = weatherData.name,
-                wCountry = weatherData.sys.country,
-                wTemp = weatherData.main.temp.toFixed(2),
-                // Or wTemp = (weatherData.main.temp - 273.15).toFixed(2),
-                wWeather = weatherData.weather.map(function(weather){
-                  return weather.description
-                });
-                wIcon = weatherData.weather.map(function(weather){
-                  let img_url = `http://openweathermap.org/img/w/${weather.icon}.png`
-                  return img_url
-                });
-            // Save query and results
             let newQuery = new Query({
               query: query,
-              city_result: wCity,
-              country_result: wCountry,
-              temp_result: wTemp,
-              weather_result: wWeather[0],
-              weather_icon_result: wIcon[0]
+              results: weatherData
             });
             newQuery.save();
             console.log(newQuery);
@@ -57,11 +52,7 @@ exports.postQuery = function(req, res) {
             res.render('index', { title: 'WeatherOf',
                                   apiData: true,
                                   error: null,
-                                  city: wCity,
-                                  country: wCountry,
-                                  temperature: wTemp,
-                                  weather: wWeather[0],
-                                  weather_icon: wIcon[0]
+                                  weather: weatherData
                                 });
           }
       }

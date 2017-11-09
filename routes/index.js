@@ -18,28 +18,20 @@ router.get('/', function(req, res, next) {
 
 router.post('/', queryController.postQuery);
 
-// API
+
+// Queries API
 router.get('/api/queries', function(req, res) {
   Query.find()
     .then(queries => {
       res.json(queries)
     })
 });
-//router.delete('/api/queries/:queryId', queryController.deleteQueryAPI);
+
+// router.delete('/api/queries/:queryId', queryController.deleteQueryAPI);
+
 
 //Queries
-router.get('/queries', function(req, res) {
-  // Sends json format data to queries.ejs
-  Query.find()
-    .then(queries => {
-      res.render('queries', { title: 'Queries',
-                              queries: queries,
-                            })
-      })
-});
-
-
-
+router.get('/queries', queryController.getQueries);
 
 
 // Return router
