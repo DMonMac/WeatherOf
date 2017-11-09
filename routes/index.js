@@ -27,7 +27,7 @@ router.get('/api/queries', function(req, res) {
     })
 });
 
-// router.delete('/api/queries/:queryId', queryController.deleteQueryAPI);
+//router.delete('/api/queries/:queryId', queryController.deleteQueryAPI);
 
 
 //Queries

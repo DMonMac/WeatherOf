@@ -16,22 +16,21 @@
       <table class="table">
         <thead>
           <tr>
+            <th>Query</th>
             <th>Date Queried</th>
             <th>City, Country</th>
             <th>Temperature</th>
           <tr>
         </thead>
         <tbody>
-            <% queries.map(query => { %>
-              <tr>
-                <td><%= query.date_queried %></td>
-                <% if(query.results != null){ %> <!-- !== null is stricter and won't consider 'undefined' -->
-                  <td><%= query.results.name %>, <%= query.results.sys.country %></td>
-                  <td><%= query.results.main.temp.toFixed(2) %>°C</td>
-                <% } %>
-
-              <tr>
-            <% }) %>
+          <% queries.map(query => { %>
+            <tr>
+              <td><%= query.query %></td>
+              <td><%= query.date_queried %></td>
+              <td><%= query.results.name %>, <%= query.results.sys.country %></td>
+              <td><%= query.results.main.temp.toFixed(2) %>°C</td>
+            <tr>
+          <% }) %>
         </tbody>
       </table>
     </div>

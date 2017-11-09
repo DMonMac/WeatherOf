@@ -30,17 +30,17 @@ exports.postQuery = function(req, res) {
     // Error handling first, then response if none
     if(err){
       res.render('index', { title: 'WeatherOf',
-                            apiData: null,
+                            weather: null,
                             error: 'Error, please try again' });
     } else {
         // Data from API is 'parsed' into usable data
         let weatherData = JSON.parse(body)
         console.log(query);
         console.log(weatherData);
-        if(weatherData == undefined) {
+        if(weatherData.cod == '404') {
           res.render('index', { title: 'WeatherOf',
-                              apiData: null,
-                              error: 'Error, please try again' });
+                                weather: null,
+                                error: 'Error, please try again' });
         } else {
             let newQuery = new Query({
               query: query,
@@ -50,7 +50,6 @@ exports.postQuery = function(req, res) {
             console.log(newQuery);
 
             res.render('index', { title: 'WeatherOf',
-                                  apiData: true,
                                   error: null,
                                   weather: weatherData
                                 });
