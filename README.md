@@ -12,3 +12,6 @@
     * City Name, Country Code
     * Temperature
     * Weather description
+    
+### LINK TO APP
+[Live Demo](https://weatherof.herokuapp.com/)
