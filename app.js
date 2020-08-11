@@ -10,8 +10,8 @@ var bodyParser = require('body-parser');
 
 // Mongo DB
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI); // Query DB
-//mongoose.connect('mongodb://localhost/test_queries');
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }); // Query DB
+//mongoose.connect('mongodb://localhost/test_queries', { useNewUrlParser: true });
 
 // Simplify route location
 var index = require('./routes/index');
